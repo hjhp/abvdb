@@ -1,0 +1,56 @@
+* {
+    color: black;
+    box-sizing: border-box; /* Include padding and border in element width and height. */
+    font-family: "Helvetica", "Courier", sans-serif;
+}
+
+html {
+    max-width: 50rem;
+    margin: auto;
+}
+
+h1.title {
+    text-align: center;
+}
+
+div#sidebar {
+    list-style-type: disc;
+    padding: 1em;
+    margin: 0;
+    border: 1px dashed black;
+    line-height: 1.5;
+}
+
+div#auth_sidebar ul {
+    list-style-type: none;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    text-align: center;
+    line-height: 1.5;
+}
+
+form th {
+    text-align: right;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+div#footer {
+    font-size: small;
+    text-align: center;
+}
+
+aside {
+    font-size: smaller;
+}
+
+code {
+    font-family: monospace;
+}
+
+#fineprint {
+    font-size: small;
+}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<p>
+    Hello, world!
+</p>
+<p>
+    This project was created on 2023-07-19 with the perhaps fantastical idea that ABV information for alcoholic beverages might be crowd-sourced.
+    The idea first came to me when, in researching solutions for dealing with the UK's duty changes effective 2023-08-01, I learnt that LivEx had their ABV data behind a paywall and there seemed to be no community-driven alternative to commercially-driven databases such as those maintained by LivEx, London City Bond, etc.
+</p>
+<p>
+    Only products with a LWIN code are supported.
+    Support for other codes (CellarTracker, Vivino, any retailer's codes…) is not currently planned and will probably never happen.
+</p>
+<p>
+    I intend for this project to do only one very simple thing, hopefully reasonably well; for that reason, metadata like submittor details and record creation date aside, this database only holds 2 fields of interest: LWIN11 and the submittor's claimed ABV for that LWIN11.
+    If other data are needed, other databases should be used in conjunction with this one; for example, LivEx publishes the <a href="https://s3-eu-west-1.amazonaws.com/lwin-dictionary/latest/LWINdatabase.csv">LWIN database</a> which holds data including producer, name, region, and country per LWIN7; it would not be useful for this database to attempt to replicate such a dataset and, given the LWIN database's Creative Commons license, replication would be an unjustifiable violation of the DRY principle.
+</p>
+{% endblock %}

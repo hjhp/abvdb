@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <title>Raw data (HTML table)</title>
+    </head>
+    <body>
+        <table class="monospace">
+            <!-- Dynamic column headers compatible only with Model.object.values("field1", "field2"…) but not with Model.object.all() -->
+            <tr>
+                {% for dict_keys in query_results %}
+                {% if forloop.first %}
+                {% for key,value in dict_keys.items %}
+                <th>{{ key }}</th>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </tr>
+
+            {% for record in query_results %}
+            <tr>
+                {% for key, value in record.items %}
+                <td>{{ value }}</td> <!-- My only regret here is the inability to format dates. -->
+                {% endfor %}
+            </tr>
+            {% endfor %}            
+        </table>
+    </body>
+</html>

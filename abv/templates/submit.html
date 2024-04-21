@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div id="submit_single" style="background-color: slategrey; padding: 1em;">
+    <h1>Submit a single data point</h1>
+    <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form_single.as_table }}
+        </table>
+        <button type="submit" name="submit_single">Submit</button>
+    </form>
+</div>
+
+<div id="submit_file" style="background-color: lightgrey; padding: 1em;">
+    <h1>Submit a csv</h1>
+    <div id="instructions">
+        <p>
+            The file must be parsable by Python's csv library.
+            There must be at least 2 columns: <code>lwin11</code> and <code>abv</code>.
+            Column names are case-sensitive.
+        </p>
+        <p>
+            Requirements:
+        </p>
+        <ul>
+            <li><code>lwin11</code>: 11-digit integer.</li>
+            <li><code>abv</code>: Float from 0.0–100.0 with 1 decimal place, e.g. '0.0', '14.0', '100.0'.</li>
+        </ul>
+        <p>
+            Invalid rows and other columns will be discarded.
+        </p>
+    </div>
+
+    <form action="{% url 'submit' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form_file.as_table }}
+        </table>
+        <button type="submit" name="submit_file">Submit</button>
+    </form>
+</div>
+
+<div id="fineprint">
+    <p>
+        Your full email address will not be published or used for marketing purposes; the primary intent of its collection is to imply some sort of accountability in submitting data, in the hopes that this reduces to some extent the actions of bad actors.
+        By submitting any data, you agree that you have the right to upload said data; that anyone with access to the data by any means may use it freely, without giving credit to any entity, for any purpose; and that this data may remain accessible for an indefinite duration save for any restrictions imposed by relevant jurisdictions.
+    </p>
+    <p>
+        This project is first and foremost intended as a social experiment, with the additional benefit that crowd-sourced data provides.
+        The project makes no claims to accuracy and takes no responsibility for any negative consequences relating to the use of the information provided.
+        No guarantees are made as to the uptime, availability, or longevity of the project or its data.
+        The project's maintainers reserve the right to limit or restrict access to any entity for any reason.
+    </p>
+</div>
+
+{% endblock %}

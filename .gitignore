@@ -1,0 +1,9 @@
+.DS_Store
+.env
+*~
+flycheck_*.el
+.projectile
+admin.yaml
+Pipfile.lock
+**/__pycache__
+db.sqlite3
