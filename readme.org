@@ -1,4 +1,5 @@
 * ABVDB
+** Introduction
 I conceived of this on <2023-07-19 Wed>, shortly before the UK's alcohol duty changes came into effect: I had noticed that organisations seemed to be paywalling this information and wondered if the wine trade might have any interest in a crowd-sourced repository.
 
 Though I had the fundamentals in place probably within 2–3 weeks, as memory serves, other things in life had to take priority and I put this project on hold until the middle of 2024-03; ultimately, I only had what I considered a MVP by around <2024-04-13 Sat>.
@@ -10,3 +11,5 @@ Above all, this is just a fun little project for me.
 As of <2024-04-21 Sun> it's not entirely clear how much time I'll be able to spend on this past the MVP point.
 You may well argue that I have no idea what I'm doing, that the code is spaghetti, etc. and these would all be fair comments.
 Feel free to make suggestions — or take advantage of the GPL-3.0 license.
+** Installation, usage notes
+This uses ~django-environ~ to manage secrets and ~settings.py~ is configured to read from a ~.env~ file in the same directory as ~settings.py~. See ~abvdb/.env.dist~ for an example.
