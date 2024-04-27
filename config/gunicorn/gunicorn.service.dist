@@ -1,0 +1,16 @@
+[Unit]
+Description=gunicorn daemon for abvdb
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+Type=notify
+User=someuser
+Group=somegroup
+WorkingDirectory=/home/yourusername/abvdb/
+ExecStart=/path/to/gunicorn -c /path/to/gunicorn/config
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target

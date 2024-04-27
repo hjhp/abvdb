@@ -1,0 +1,17 @@
+server {
+  server_name               abvdb.yourdomain.com;
+  location / {
+    proxy_pass              http://unix:/run/gunicorn.sock;
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+  }
+
+location /static {
+  autoindex on;
+  alias /your/static/files/;
+}
+
+location = /robots.txt {
+  add_header Content-Type text/plain;
+  return 200 "User-agent: *\nAllow: /\n";
+}
