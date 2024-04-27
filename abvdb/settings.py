@@ -17,7 +17,9 @@ import environ
 # Set django-environ data types and defaults
 env = environ.Env(
     DEBUG=(bool, False),
-    SECRET_KEY=(str, "django-insecure-&2ip#z=7dijxs+9uz&-js0bmza5!0nz$*=((qhe*9r9fph5aaa")
+    SECRET_KEY=(str, "django-insecure-&2ip#z=7dijxs+9uz&-js0bmza5!0nz$*=((qhe*9r9fph5aaa"),
+    ALLOWED_HOSTS=(list, ["*"]),
+    CSRF_TRUSTED_ORIGINS=(list, ["*"]),
 )
 environ.Env.read_env() # Assumes .env is in the same directory as settings.py
 
@@ -32,8 +34,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '.hugopoon.com']
-CSRF_TRUSTED_ORIGINS = ['https://abvdb.hugopoon.com']
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
 
 # Application definition
 INSTALLED_APPS = [
@@ -102,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
