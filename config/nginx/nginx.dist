@@ -13,6 +13,6 @@ server {
 
   location = /robots.txt {
     add_header Content-Type text/plain;
-    return 200 "User-agent: *\nAllow: /\n";
+    alias /your/robots/txt;
   }
 }

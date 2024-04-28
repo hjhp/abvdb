@@ -101,6 +101,7 @@ echo 'Creating your nginx config …'
 sed -E \
     -e "s%abvdb.yourdomain.com;%$ABVDB_URL;%" \
     -e "s%alias /your/static/files/;%alias $PROJECT_DIR/static/;%" \
+    -e "s%alias /your/robots/txt;%alias $PROJECT_DIR/config/nginx/robots.txt%"
     $PROJECT_DIR/config/nginx/nginx.dist > $PROJECT_DIR/config/nginx/$ABVDB_URL
 
 sudo cp $PROJECT_DIR/config/nginx/$ABVDB_URL /etc/nginx/sites-available/$ABVDB_URL
