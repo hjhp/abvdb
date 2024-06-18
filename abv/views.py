@@ -31,7 +31,7 @@ def submit(request):
                 abv_form = AbvSubmitSingle(request.POST)
                 if abv_form.is_valid():
                     intermediary_form = abv_form.save(commit=False) # commit=False to restore the submittor_ip field, which is excluded from the HTML form.
-                    intermediary_form.submittor_ip = request.META['REMOTE_ADDR']
+                    # intermediary_form.submittor_ip = request.META['REMOTE_ADDR']
                     intermediary_form.user_id = request.user.id # https://forum.djangoproject.com/t/automatically-get-user-id-to-assignate-to-form-when-submitting/5333/8 which gives the basic outline; https://stackoverflow.com/a/3855829
                     intermediary_form.save() 
                     # todo: Implement django.contrib messages to display a "thank you".
@@ -43,7 +43,7 @@ def submit(request):
                 if abv_form.is_valid():
                     # All the "intermediary" steps applicable to submit_single do not apply here, because AbvSubmitFile is not a ModelForm: it is just a Form. Therefore the request will have to be broken down and the model updated manually.
                     # Set constants
-                    submittor_ip = request.META['REMOTE_ADDR']
+                    # submittor_ip = request.META['REMOTE_ADDR']
                     user_id = request.user.id
                     csv_file = request.FILES["file"]
                     try:
@@ -56,7 +56,7 @@ def submit(request):
                             record = Abv(
                                 lwin11 = item["lwin11"],
                                 abv = item["abv"],
-                                submittor_ip = submittor_ip,
+                                # submittor_ip = submittor_ip,
                                 user_id = user_id,
                             )
                             record.full_clean() # Run validation on each row based on the rules defined in models.py.
