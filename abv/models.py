@@ -19,7 +19,6 @@ class Abv(models.Model):
                                           ]
                             )
     date_created = models.DateTimeField(auto_now_add = True)
-    submittor_ip = models.GenericIPAddressField(protocol = "both")
     user = models.ForeignKey( # This field actually becomes user_id in the database. But it seems it must be called "user" because the related table is called "User"? I deduced that from https://zerotobyte.com/complete-guide-to-django-foreignkey/. And indeed in views.py we must refer to this field as "user_id", not "user", otherwise we get the ValueError '"Abv.user" must be a "User" instance.' 'Setting db_column = "user"' here (and changing views.py to "intermediary_form.user = request.user.id" rather than "intermediary_form.user_id = request.user.id") results in the same ValueError. I don't understand.
         settings.AUTH_USER_MODEL,
         on_delete = models.SET_NULL,
