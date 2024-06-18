@@ -37,8 +37,8 @@
                 <h2>Download data</h2>
                 <ul>
                     <li><a href="{% url 'data_raw_csv' %}">Raw data (csv)</a></li>
-                    <li><a href="{% url 'data_latest_per_user_csv' %}">Latest ABV submission per LWIN per user (csv)</a></li>
-                    <li><a href="{% url 'data_majority_vote_csv' %}">Majority vote ABV per LWIN11 (csv)</a> <aside>If multiple LWIN11-ABV pairs have the same number of submissions, both will be included. If one user submits the same LWIN11-ABV pair multiple times, it will only be counted once.</aside></li>
+                    <li><a href="{% url 'data_latest_per_user_csv' %}">Latest ABV submission per LWIN per user (csv)</a> <aside>Potentially incorrect.</aside></li>
+                    <li><a href="{% url 'data_majority_vote_csv' %}">Majority vote ABV per LWIN11 (csv)</a> <aside>If multiple LWIN11-ABV pairs have the same number of submissions, both will be included. If one user submits the same LWIN11-ABV pair multiple times, it will only be counted once.</aside> <aside>Potentially incorrect.</aside></li>
                 </ul>
             </nav>
         </div>
