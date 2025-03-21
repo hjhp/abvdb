@@ -59,6 +59,7 @@ read -p "Which group would you like to run gunicorn as? (default: $WHOAMI)" GUNI
 GUNICORN_GROUP=${GUNICORN_GROUP:-$WHOAMI}
 
 echo 'Creating /var/{{log,run}/gunicorn and giving ownership to the specified user and group…'
+# Does this step need to be rerun everytime the server is restarted?
 sudo mkdir -pv /var/{log,run}/gunicorn/
 sudo chown -cR $GUNICORN_USER:$GUNICORN_GROUP /var/{log,run}/gunicorn/
 
