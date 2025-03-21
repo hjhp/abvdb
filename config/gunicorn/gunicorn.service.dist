@@ -11,6 +11,7 @@ WorkingDirectory=/home/yourusername/abvdb/
 ExecStart=/path/to/gunicorn -c /path/to/gunicorn/config
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop = /bin/kill -s TERM $MAINPID
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
