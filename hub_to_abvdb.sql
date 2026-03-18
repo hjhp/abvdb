@@ -9,8 +9,8 @@
 .mode csv
 .once hub_to_abvdb_output.csv
 SELECT DISTINCT
-LWIN11,
-ABV
+LWIN11 AS lwin11,
+ABV AS abv
 FROM hub
 WHERE 
 "ABV verified" = 'true'
