@@ -21,3 +21,6 @@ less deploy.sh # Blind trust could be a bad idea here.
 chmod +x deploy.sh
 ./deploy.sh
 #+end_src
+*** Cloudflare conflict
+There may be a conflict where, if running Certbot and also using Cloudflare DNS proxying, the page will never load due to "infinite redirects".
+The solution is to set Cloudflare to "DNS only" in the DNS > Records.
