@@ -24,3 +24,4 @@ chmod +x deploy.sh
 *** Cloudflare conflict
 There may be a conflict where, if running Certbot and also using Cloudflare DNS proxying, the page will never load due to "infinite redirects".
 The solution is to set Cloudflare to "DNS only" in the DNS > Records.
+(Informed by [[https://stackoverflow.com/questions/4616521/nginx-configuration-leads-to-endless-redirect-loop][Zaki Aziz's Stack Overflow post of 2019-05-30]].)
